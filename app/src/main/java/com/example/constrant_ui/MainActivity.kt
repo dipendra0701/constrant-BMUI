@@ -8,4 +8,22 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     }
+}    return super.onOptionsItemSelected(item)
+}
+
+override fun onBackPressed() {
+    val builder= AlertDialog.Builder(this)
+    builder.setMessage("Do you want to exit ?")
+    builder.setTitle("Alert !")
+    builder.setCancelable(false)
+    builder.setPositiveButton("Yes")
+    {
+            dialog, which-> finish()
+    }
+    builder.setNegativeButton("No")
+    { dialog, which -> dialog.cancel()
+    }
+
+    val alertDialog = builder.create()
+    alertDialog.show()
 }
